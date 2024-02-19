@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 class ProjectController extends Controller
 {
     public function index(){
+
+        request()->validate([
+            'key' => 'nullable|string|min:3',
+        ]);
+
+       
         $projects= Project::with('type','technologies')->get();
 
         return response()->json(
