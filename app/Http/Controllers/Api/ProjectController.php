@@ -16,8 +16,13 @@ class ProjectController extends Controller
             'key' => 'nullable|string|min:3',
         ]);
 
+        if (request()->key){
+            $projects = Project::where('title','LIKE','%'.request()->key.'%')->orWhere('description','LIKE','%'.request()->key.'%')->get();
+        }else{
+            $projects= Project::with('type','technologies')->get();
+        }
        
-        $projects= Project::with('type','technologies')->get();
+        
 
         return response()->json(
             ['status'=>true,
