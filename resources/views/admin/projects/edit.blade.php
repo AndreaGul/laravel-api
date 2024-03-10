@@ -78,7 +78,7 @@
             <label class="form-check-label" for="{{$technology->id}}">{{$technology->title}}</label>
              
           @else
-            <input class="form-check-input" type="checkbox" value="{{ $technology->id }}" name="technologies[]"  id="tag-{{$technology->id}}" {{ $post->tags->contains($tag->id) ? 'checked' : '' }}>
+            <input class="form-check-input" type="checkbox" value="{{ $technology->id }}" name="technologies[]"  id="tag-{{$technology->id}}" {{ $project->technologies->contains($technology->id) ? 'checked' : '' }}>
 
             <label class="form-check-label" for="{{$technology->id}}">{{$technology->title}}</label>
               
